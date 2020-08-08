@@ -8,8 +8,7 @@ public class AlphaRobot extends AbstractRobot {
 	private int y;
 	
 	//Constructor
-	AlphaRobot() {}
-	public AlphaRobot(String name, String model) {
+	protected AlphaRobot(String name, String model) {
 	  setName(name);
 	  setModel(model);
 	  setX(0);
@@ -65,7 +64,7 @@ public class AlphaRobot extends AbstractRobot {
     //MOVE
 	public boolean moveRight() {
 		if(Coordinates(getX())) {
-		setX(getX() -1);
+		setX(getX() +1);
 		return true;
 		}
 		return false;
@@ -73,7 +72,7 @@ public class AlphaRobot extends AbstractRobot {
 
 	public boolean moveLeft() {
 		if(Coordinates(getX())) {
-		setX(getX() +1);
+		setX(getX() -1);
 		return true;
 		}
 		return false;
@@ -81,7 +80,7 @@ public class AlphaRobot extends AbstractRobot {
 
 	public boolean moveDown() {
 		if(Coordinates(getY())) {
-		setY(getY() -1);
+		setY(getY() +1);
 		return true;
 		}
 		return false;
@@ -89,7 +88,7 @@ public class AlphaRobot extends AbstractRobot {
 
 	public boolean moveUp() {
 		if(Coordinates(getY())) {
-		setY(getY() +1);
+		setY(getY() -1);
 		return true;
 		}
 		return false;

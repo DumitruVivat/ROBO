@@ -3,9 +3,12 @@ package robo;
 public class BetaRobot extends AlphaRobot {
 	
 	private byte charge;
+	private byte move = 0;
+	
+	
 	
 	//Constructor
-	public BetaRobot(String name,String model) {
+	protected BetaRobot(String name,String model) {
 		super(name,model);
 		setCharge((byte)0);
 	}
@@ -21,33 +24,49 @@ public class BetaRobot extends AlphaRobot {
 		System.err.println("Charge , ERROR !!");
 	}
     //MOVE
-	public boolean moveRight() {
-		if(ChargeLimits(charge)) {
-		System.err.println("Loow Battery !!");
-		}
-		return super.moveRight();
-	}
+    public boolean moveRight() {
+    	if(batteryLow() && super.moveRight()) {
+    	  ChargeMove();
+    	  return true;	
+    	  }
+    	  return false;
+	}	
 	public boolean moveLeft() {
-		if(ChargeLimits(charge)) {
-			System.err.println("Loow Battery !!");
-			}
-		return super.moveLeft();
+		if(batteryLow() && super.moveLeft()) {
+	    	ChargeMove();
+	    	return true;	
+	    	}
+			return false;
 	}
 	public boolean moveDown() {
-		if(ChargeLimits(charge)) {
-			System.err.println("Loow Battery !!");
-			}
-		return super.moveDown();
+		if(batteryLow() && super.moveDown()) {
+	    	ChargeMove();
+	    	return true;	
+	    	}
+			return false;
 	}
 	public boolean moveUp() {
-		if(ChargeLimits(charge)) {
-			System.err.println("Loow Battery !!");
-			}
-		return super.moveUp();
+		if(batteryLow() && super.moveUp()) {
+	    	ChargeMove();
+	    	return true;	
+	    	}
+			return false;
 	}
 	///Limits
-	public boolean ChargeLimits(byte battery) {
-		return (battery < 5);
+	public boolean batteryLow() {
+	if(charge < 5) {
+		System.err.println("Low Battery");
+	    return false;
+	}else {
+	    return true;
+	}
+	}
+	public void ChargeMove() {
+	move++;
+	if(move == 2) {
+	   setCharge((byte)(getCharge()-1));
+	   move = 0;
+	} 
 	}
 	
 	
