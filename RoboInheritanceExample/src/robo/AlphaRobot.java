@@ -97,5 +97,44 @@ public class AlphaRobot extends AbstractRobot {
 	boolean Coordinates(int coordinates) {
 		return (coordinates > 0 && coordinates < 100);
 	}
+
+	@Override
+	public void setCharge(int charge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public byte getCharge() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean moveDownRight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveUpRight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveDownLeft() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveUpLeft() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	
 	
 }

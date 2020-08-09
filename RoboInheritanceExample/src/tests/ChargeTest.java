@@ -1,10 +1,11 @@
 package tests;
 
-import robo.BetaRobot;
+
+import robo.AbstractRobot;
 
 public class ChargeTest {
 
-	public static int runCase(BetaRobot robo){
+	public static int runCase(AbstractRobot robo){
         int percentage = 0;
         
         // charge can't be < 0
